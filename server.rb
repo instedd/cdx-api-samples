@@ -7,6 +7,9 @@ set :bind, '0.0.0.0'
 
 HOST = "http://cdp2.instedd.org"
 
+CDX_USERNAME = ENV["CDX_USER"] || "user@instedd.org"
+CDX_PASSWORD = ENV["CDX_PASS"] || "password"
+
 get '/event/:uuid/:assay' do
   test_uuid = params[:uuid]
   assay_condition = params[:assay]
@@ -17,6 +20,7 @@ get '/event/:uuid/:assay' do
   puts uri
 
   req = Net::HTTP::Get.new(uri.request_uri)
+  req.basic_auth CDX_USERNAME, CDX_PASSWORD
 
   req["Content-Type"] = "application/json"
 
