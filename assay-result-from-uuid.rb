@@ -9,7 +9,7 @@ require 'net/http'
 
 set :bind, '0.0.0.0'
 
-HOST = "http://cdp2.instedd.org"
+HOST = ENV["CDX_HOST"] || "http://cdp2.instedd.org"
 
 CDX_USERNAME = ENV["CDX_USER"] || "user@instedd.org"
 CDX_PASSWORD = ENV["CDX_PASS"] || "password"
