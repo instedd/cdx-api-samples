@@ -1,4 +1,8 @@
 #!/usr/bin/env ruby
+
+# Returns the result for a given condition of a single test as a string
+# or "N/A" if not available - for any reason
+
 require 'sinatra'
 require 'json'
 require 'net/http'
